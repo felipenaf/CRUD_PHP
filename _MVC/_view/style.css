@@ -1,0 +1,31 @@
+@font-face {
+     font-family: kavivanar;
+     src: url('fonts/Kavivanar-Regular.ttf');
+}
+
+.red{
+	background-color: red;
+}
+
+.borda{
+	border: 1px solid red;
+}
+
+nav{
+	font-family: kavivanar, Calibri, Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman',  serif;
+}
+
+nav span{
+	color: red ;
+}
+
+#container{
+	padding-top: 140px;
+}
+
+#table_listar_filme{
+	font-size: 14px;
+}
+
+
+
