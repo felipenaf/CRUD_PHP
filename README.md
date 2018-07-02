@@ -23,8 +23,8 @@ Não há requerimentos.
 --
 INSTALAÇÃO
 ------------
-Nao há restrições de instalação
+Não há restrições de instalação
 --
 CONFIGURAÇÃO
 -------------
-Nao ha restrições de configuração
+Não há restrições de configuração
