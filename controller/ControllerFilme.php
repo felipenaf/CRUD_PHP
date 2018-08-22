@@ -1,24 +1,24 @@
 <?php
 	
-	include_once '.\_model/FilmeDao.php';
-	include_once '.\_bean/Filme.php';
+	include_once RAIZ . '/model/FilmeDao.php';
+	include_once RAIZ . '/bean/Filme.php';
 	
 	class ControllerFilme{
 
 		public function index(){
-			require_once '_view/main.php';
+			require_once RAIZ . '/view/main.php';
 		}
 
 		public function tela_cadastro(){
-			require_once '_view/filme_cadastro.php';
+			require_once RAIZ . '/view/filme_cadastro.php';
 		}
 
 		public function tela_lista(){
-			require_once '_view/filme_lista.php';
+			require_once RAIZ . '/view/filme_lista.php';
 		}
 
 		public function tela_editar(){
-			require_once '_view/filme_editar.php';
+			require_once RAIZ . '/view/filme_editar.php';
 		}
 
 		public function cadastrar(){
