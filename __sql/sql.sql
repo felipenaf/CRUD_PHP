@@ -2,7 +2,7 @@
 create database crud;
 
 /*Criação da tabela filme*/
-create table filme(
+create table crud.filme(
     id int(5) not null primary key AUTO_INCREMENT,
     tituloOr varchar(50) not null,
     tituloBr varchar(50),
