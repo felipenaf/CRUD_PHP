@@ -1,8 +1,8 @@
 <?php
-	include_once 'conexao.php';
-	include_once '.\_bean/Filme.php';
-	include_once '.\_view/msg.php';
-	include_once '.\_controller/ControllerFilme.php';
+	include_once RAIZ . '/model/conexao.php';
+	include_once RAIZ . '/bean/Filme.php';
+	include_once RAIZ . '/view/msg.php';
+	include_once RAIZ . '/controller/ControllerFilme.php';
 
 	class FilmeDao{
 		

@@ -1,5 +1,5 @@
-<?php include_once ".\_model/FilmeDao.php"; ?>
-<?php include_once ".\_controller/ControllerFilme.php"; ?>
+<?php include_once RAIZ . '/model/FilmeDao.php'; ?>
+<?php include_once RAIZ . '/controller/ControllerFilme.php'; ?>
 
 <!DOCTYPE html>
 <html>
