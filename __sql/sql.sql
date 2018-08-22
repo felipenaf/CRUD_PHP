@@ -21,4 +21,3 @@ truncate filme;
 
 DELETE FROM filme WHERE filme.id = 2;
 
-
