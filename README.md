@@ -15,6 +15,9 @@ No diretório __sql está o arquivo sql.sql que contém a query com o script de 
 
 ### REQUERIMENTO
 Apache
+
 PHP 5.6 ou superior.
+
 Banco de dados Mysql.
+
 Editor de texto ou IDE.
