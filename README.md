@@ -19,5 +19,3 @@ Apache
 PHP 5.6 ou superior.
 
 Banco de dados Mysql.
-
-Editor de texto ou IDE.
