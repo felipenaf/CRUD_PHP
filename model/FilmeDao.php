@@ -71,18 +71,34 @@
 		function editar(Filme $f){
 			$con = getConnection();
 
-			$id = $f->getId();
-			$tituloOr = $f->getTituloOr();
-			$tituloBr = $f->getTituloBr();
+			$id 		= $f->getId();
+			$tituloOr 	= $f->getTituloOr();
+			$tituloBr 	= $f->getTituloBr();
 			$ano	  	= $f->getAno(); 
-			$diretor  = $f->getDiretor();
-			$genero   = $f->getGenero();
+			$diretor  	= $f->getDiretor();
+			$genero   	= $f->getGenero();
 
-			$sql = "UPDATE filme SET tituloOr = $tituloOr, tituloBr = $tituloBr, ano = $ano, diretor = $diretor, genero = $genero WHERE id = $id";
+			$sql = "UPDATE crud.filme SET tituloOr = '$tituloOr', tituloBr = '$tituloBr', ano = $ano, diretor = '$diretor', genero = '$genero' WHERE id = $id;";
 
-			$dados = mysqli_query($con, $sql) or die(mysqli_error());
+			if(mysqli_query($con, $sql)){
+				
+				echo "<script>alert('Alteração salva com sucesso');</script>";
 
-			return $dados;
+			} else {
+
+				echo "<script>alert('Erro ao alterar as informações');</script>";
+				
+			}				
+
+			mysqli_close($con);
+		}
+
+		function consultaId($id){
+			$con = getConnection();
+			$sql = "SELECT * FROM crud.filme WHERE id = $id";
+			$resultado = mysqli_query($con, $sql);
+
+			return $resultado;
 
 			mysqli_close($con);
 		}

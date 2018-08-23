@@ -42,27 +42,28 @@
 								// calcula quantos dados retornaram
 								// mysqli_num_rows() retorna o número de linhas que esxistem no registro
 								$total = mysqli_num_rows($rs);
+								$registro = array();
 
 								for ($i=0; $i < $total; $i++) { 
 								 	
 								 	$linha = mysqli_fetch_assoc($rs);
-								 	$id 			= $linha['id'];
-								 	$tituloOr = $linha['tituloOr'];
-								 	$tituloBr = $linha['tituloBr'];
-								 	$ano 			= $linha['ano'];
-								 	$diretor 	= $linha['diretor'];
-								 	$genero 	= $linha['genero'];
+								 	$registro['id'] 		= $linha['id'];
+								 	$registro['tituloOr'] 	= $linha['tituloOr'];
+								 	$registro['tituloBr']	= $linha['tituloBr'];
+								 	$registro['ano']		= $linha['ano'];
+								 	$registro['diretor'] 	= $linha['diretor'];
+								 	$registro['genero'] 	= $linha['genero'];
 							?>
 
 							<tbody>
 								<tr>
-									<td class="py-1"><?= $tituloOr 	?></td>
-									<td class="py-1"><?= $tituloBr 	?></td>
-									<td class="py-1"><?= $ano 			?></td>
-									<td class="py-1"><?= $diretor 	?></td>
-									<td class="py-1"><?= $genero 		?></td>
-									<td class="py-1 text-center"><a class="btn btn-secondary btn-sm py-0" href="?controllerFilme=controllerFilme&acao=editar&id=<?= $id ?>">Editar</a></td>
-									<td class="py-1 text-center"><a class="btn btn-danger btn-sm py-0" href="?controllerFilme=controllerFilme&acao=excluir&id=<?= $id ?>" onclick="return confirm('Tem certeza que deseja excluir o registro?')">Excluir</a></td>
+									<td class="py-1"><?= $registro['tituloOr'] 	?></td>
+									<td class="py-1"><?= $registro['tituloBr'] 	?></td>
+									<td class="py-1"><?= $registro['ano'] 		?></td>
+									<td class="py-1"><?= $registro['diretor'] 	?></td>
+									<td class="py-1"><?= $registro['genero'] 	?></td>
+									<td class="py-1 text-center"><a class="btn btn-secondary btn-sm py-0" href="?controllerFilme=controllerFilme&acao=tela_editar&id=<?= $registro['id'] ?>">Editar</a></td>
+									<td class="py-1 text-center"><a class="btn btn-danger btn-sm py-0" href="?controllerFilme=controllerFilme&acao=excluir&id=<?= $registro['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir o registro?')">Excluir</a></td>
 								</tr>
 							</tbody>
 

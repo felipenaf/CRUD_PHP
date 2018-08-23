@@ -18,6 +18,7 @@
 		}
 
 		public function tela_editar(){
+			
 			require_once RAIZ . '/view/filme_editar.php';
 		}
 
@@ -26,24 +27,20 @@
 
 			$f->setTituloOr	((isset($_POST["tituloOr"]))? $_POST["tituloOr"]:"");
 			$f->setTituloBr	((isset($_POST["tituloBr"]))? $_POST["tituloBr"]:"");
-			$f->setAno			((isset($_POST["ano"]))? $_POST["ano"]:"");
-			$f->setDiretor	((isset($_POST["diretor"]))? $_POST["diretor"]:"");
-			$f->setGenero		((isset($_POST["genero"]))? $_POST["genero"]:"");
-
-			//var_dump($f);
+			$f->setAno		((isset($_POST["ano"]))		? $_POST["ano"]:"");
+			$f->setDiretor	((isset($_POST["diretor"]))	? $_POST["diretor"]:"");
+			$f->setGenero	((isset($_POST["genero"]))	? $_POST["genero"]:"");
 
 			$fDao = new FilmeDao();
 
 			$rs = $fDao->inserir($f);
 
-			//var_dump($rs);
 		}
 
 		public function listar(){
 
 			$fDao = new FilmeDao();
 
-			//a variável $rs está recebendo o valor de retorno do método listar da Classe FilmeDao
 			$rs = $fDao->listar();
 
 			return $rs;
@@ -72,9 +69,20 @@
 
 		public function editar(){
 
-			$cf = new ControllerFilme();
+			$f = new Filme();
+			$f->setId		((isset($_POST['id'])) 		? $_POST['id'] 		: '');
+			$f->setTituloOr	((isset($_POST["tituloOr"]))? $_POST["tituloOr"]: '');
+			$f->setTituloBr	((isset($_POST["tituloBr"]))? $_POST["tituloBr"]: '');
+			$f->setAno		((isset($_POST["ano"]))		? $_POST["ano"]		: '');
+			$f->setDiretor	((isset($_POST["diretor"]))	? $_POST["diretor"]	: '');
+			$f->setGenero	((isset($_POST["genero"]))	? $_POST["genero"]	: '');
 
-			$cf->tela_editar();
+			$fDao = new FilmeDao();
+			$fDao->editar($f);
+
+			$cf = new ControllerFilme();
+			$cf->tela_lista();
+
 		}
 	}
 ?>
