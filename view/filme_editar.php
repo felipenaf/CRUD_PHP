@@ -21,7 +21,6 @@
 					$resultado = array();
 					$resultado = $fDao->consultaId($id);
 
-					/* Validando a variável $resultado */
 					if (is_array($resultado) || is_object($resultado)){
 
 						foreach ($resultado as $filme) {
@@ -32,7 +31,6 @@
 							$diretor 	= $filme['diretor'];
 							$genero 	= $filme['genero'];
 						}
-
 					}
 				?>
 
@@ -65,9 +63,9 @@
 					  <label for="Genero">Gênero</label>
 					  <select class="form-control" name="genero">
 
-						<option value="<?= $genero ?>"><?= $genero ?></option>
+							<option value="<?= $genero ?>"><?= $genero ?></option>
 
-						<? include_once("template/filme_genero.php") ?>
+							<? include_once("template/filme_genero.php") ?>
 						
 					  </select>
 					</div>
@@ -76,11 +74,10 @@
 					</form>
 				</div>
 			</div>
-			
 		</main>
-				
 
 		<? include_once("template/rodape.php") ?>
 		<? include_once("template/js.php") ?>
+		
 	</body>
 </html>

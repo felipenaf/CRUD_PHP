@@ -1,8 +1,8 @@
 <?php
-	
+
 	include_once RAIZ . '/model/FilmeDao.php';
-	include_once RAIZ . '/bean/Filme.php';
-	
+	include_once RAIZ . '/bean/Filme.Class.php';
+
 	class ControllerFilme{
 
 		public function index(){
@@ -18,53 +18,37 @@
 		}
 
 		public function tela_editar(){
-			
 			require_once RAIZ . '/view/filme_editar.php';
 		}
 
 		public function cadastrar(){
-			$f = new Filme();
 
+			$f = new Filme();
 			$f->setTituloOr	((isset($_POST["tituloOr"]))? $_POST["tituloOr"]:"");
 			$f->setTituloBr	((isset($_POST["tituloBr"]))? $_POST["tituloBr"]:"");
-			$f->setAno		((isset($_POST["ano"]))		? $_POST["ano"]:"");
-			$f->setDiretor	((isset($_POST["diretor"]))	? $_POST["diretor"]:"");
-			$f->setGenero	((isset($_POST["genero"]))	? $_POST["genero"]:"");
+			$f->setAno		((isset($_POST["ano"]))		? $_POST["ano"]		:"");
+			$f->setDiretor	((isset($_POST["diretor"]))	? $_POST["diretor"]	:"");
+			$f->setGenero	((isset($_POST["genero"]))	? $_POST["genero"]	:"");
 
 			$fDao = new FilmeDao();
-
 			$rs = $fDao->inserir($f);
-
 		}
 
 		public function listar(){
 
 			$fDao = new FilmeDao();
-
 			$rs = $fDao->listar();
 
 			return $rs;
 		}
 
 		public function excluir(){
-			$f = new Filme();
 
-			$f->setId((isset($_GET["id"]))? $_GET["id"]:"");
+			$f = new Filme();
+			$f->setId((isset($_GET["id"])) ? $_GET["id"] : '');
 
 			$fDao = new FilmeDao();
-
 			$resultado = $fDao->excluir($f);
-
-			if ($resultado) {
-				$i = new ControllerFilme();
-				$i->tela_lista();
-				echo "<script>alert('Exclusão Efetuada com sucesso!');</script>";
-			}else{
-				$i = new ControllerFilme();
-				$i->tela_lista();
-				echo "<script>alert('Erro ao excluir o registro!');</script>";
-			}
-
 		}
 
 		public function editar(){
@@ -82,7 +66,6 @@
 
 			$cf = new ControllerFilme();
 			$cf->tela_lista();
-
 		}
 	}
 ?>

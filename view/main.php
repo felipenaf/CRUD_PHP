@@ -1,5 +1,5 @@
-<?php include_once RAIZ . "/model/FilmeDao.php"; ?>
-<?php include_once RAIZ . "/controller/ControllerFilme.php"; ?>
+<? include_once RAIZ . "/model/FilmeDao.php" ?>
+<? include_once RAIZ . "/controller/ControllerFilme.php" ?>
 
 <!DOCTYPE html>
 <html>
@@ -15,7 +15,6 @@
 				
 			
 		</main>
-
 
 		<?php include_once(RAIZ . "/view/template/rodape.php") ?>
 		<?php include_once(RAIZ . "/view/template/js.php") ?>

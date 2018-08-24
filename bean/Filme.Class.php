@@ -1,4 +1,4 @@
-<?php  
+<?php
 	class Filme{
 
 		private $id;
@@ -8,18 +8,6 @@
 		private $diretor;
 		private $genero;
 
-		function __construct(){
-
-		}
-
-		// function __construct($tituloOr, $tituloBr, $ano, $diretor, $genero){
-		// 	$this->tituloOr = $tituloOr;
-		// 	$this->tituloBr = $tituloBr;
-		// 	$this->ano = $ano;
-		// 	$this->diretor = $diretor;
-		// 	$this->genero = $genero;
-		// }
-		
 		function setId($id){
 			$this->id = $id;
 		}

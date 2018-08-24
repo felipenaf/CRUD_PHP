@@ -33,14 +33,7 @@
 							<?php 
 
 								$cf = new ControllerFilme();
-
-								//a variável $rs recebe o que foi retornado do  método listar() do Controller
 								$rs = $cf->listar();
-
-								//var_dump($rs);
-
-								// calcula quantos dados retornaram
-								// mysqli_num_rows() retorna o número de linhas que esxistem no registro
 								$total = mysqli_num_rows($rs);
 								$registro = array();
 
@@ -68,16 +61,13 @@
 							</tbody>
 
 							<?php 
-
 								}
-
 							?>
 							
 						</table>
 					</form>
 				</div>
 			</div>
-			
 		</main>
 
 		<?php include_once("template/rodape.php") ?>

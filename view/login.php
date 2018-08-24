@@ -21,7 +21,6 @@
 						<label>Senha</label>
 						<input class="form-control" type="password" name="senha">
 					</div>
-
 				</div>
 			</div>
 		</form>

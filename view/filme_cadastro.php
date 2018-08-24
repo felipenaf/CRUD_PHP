@@ -1,4 +1,4 @@
-	<?php include_once(RAIZ . '/model/FilmeDao.php') ?>
+<?php include_once(RAIZ . '/model/FilmeDao.php') ?>
 
 <!DOCTYPE html>
 <html>
@@ -51,9 +51,7 @@
 					</form>
 				</div>
 			</div>
-			
 		</main>
-
 
 		<?php include_once("template/rodape.php") ?>
 		<?php include_once("template/js.php") ?>

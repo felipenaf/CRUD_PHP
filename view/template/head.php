@@ -11,13 +11,8 @@
 
     <script type="text/javascript">
     	
-      function exibe(id){
-        $('#exampleModal').show();
-        }
-
       $( document ).ready(function() {
         console.log( "ready!" );
       });
-
     </script>
   </head>

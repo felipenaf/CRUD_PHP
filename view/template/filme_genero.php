@@ -6,4 +6,5 @@
 	<option value="Comédia">Comédia</option>
 	<option value="Ação">Ação</option>
 	<option value="Thriller">Thriller</option>
+	<option value="Thriller">Fantasia</option>
  
