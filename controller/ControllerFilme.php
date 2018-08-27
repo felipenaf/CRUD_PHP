@@ -48,7 +48,7 @@
 			$f->setId((isset($_GET["id"])) ? $_GET["id"] : '');
 
 			$fDao = new FilmeDao();
-			$resultado = $fDao->excluir($f);
+			$fDao->excluir($f);
 		}
 
 		public function editar(){

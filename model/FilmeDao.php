@@ -6,66 +6,63 @@
 	class FilmeDao{
 		
 		function inserir(Filme $f){
+			try{
 
-			$con = getConnection();
+				Conexao::getConexao();
+				$tituloOr = $f->getTituloOr();
+				$tituloBr = $f->getTituloBr();
+				$ano	  = $f->getAno(); 
+				$diretor  = $f->getDiretor();
+				$genero   = $f->getGenero();
 
-			$tituloOr = $f->getTituloOr();
-			$tituloBr = $f->getTituloBr();
-			$ano	  = $f->getAno(); 
-			$diretor  = $f->getDiretor();
-			$genero   = $f->getGenero();
+				$sql = "INSERT INTO crud.filme (tituloOr, tituloBr, ano, diretor, genero) 
+						VALUES ('$tituloOr', '$tituloBr', $ano, '$diretor', '$genero')";
+				$resultado = Conexao::getConexao()->query($sql);
 
-			$sql = "INSERT INTO crud.filme (tituloOr, tituloBr, ano, diretor, genero) 
-					VALUES ('$tituloOr', '$tituloBr', $ano, '$diretor', '$genero')";
-			$dados = mysqli_query($con, $sql) or die(mysqli_error($con));
-
-			$cf = new ControllerFilme();
-
-			if($dados){
-				
+				$cf = new ControllerFilme();
 				$cf->tela_lista();
 				echo "<script>alert('Filme Cadastrado com sucesso');</script>";
-			} else {
 
-				$cf->tela_lista();
-				echo "<script>alert('Erro ao cadastrar o filme');</script>";
+			}catch(Exception $e){
+
+				echo "Erro: {$e->getMessage()}";
+				echo "<br>";
+				echo "Linha: {$e->getLine()}";
 			}
-
-			mysqli_close($con);
 		}
 
 		function listar(){
+			try{
 
-			Conexao::getConexao();
+				Conexao::getConexao();
+				$sql = "SELECT * FROM crud.filme ORDER BY id DESC";
+				$resultado = Conexao::getConexao()->query($sql);
+			}catch(Exception $e){
 
-			$sql = "SELECT * FROM crud.filme ORDER BY id DESC";
-			$resultado = Conexao::getConexao()->query($sql);
-			
+				echo "Erro: {$e->getMessage()}";
+				echo "<br>";
+				echo "Linha: {$e->getLine()}";
+			}
 			return $resultado;
 		}
 
 		function excluir(Filme $f){
+			try{
 
-			$con = getConnection();
+				Conexao::getConexao();
+				$id = $f->getId();
+				$sql = "DELETE FROM crud.filme WHERE filme.id = $id";
+				Conexao::getConexao()->query($sql);
 
-			$id = $f->getId();
-
-			$sql = "DELETE FROM crud.filme WHERE filme.id = $id";
-			$dados = mysqli_query($con, $sql) or die(mysqli_error());
-
-			$cf = new ControllerFilme();
-
-			if ($dados){
-				
+				$cf = new ControllerFilme();
 				$cf->tela_lista();
 				echo "<script>alert('Exclusão Efetuada com sucesso!');</script>";
-			}else{
+			}catch(Exception $e){
 
-				$cf->tela_lista();
-				echo "<script>alert('Erro ao excluir o registro!');</script>";
+				echo "Erro: {$e->getMessage()}";
+				echo "<br>";
+				echo "Linha: {$e->getLine()}";
 			}
-
-			mysqli_close($con);
 		}
 
 		function editar(Filme $f){
