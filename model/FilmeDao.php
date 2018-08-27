@@ -36,14 +36,12 @@
 
 		function listar(){
 
-			$con = getConnection();
+			Conexao::getConexao();
 
-			$sql = "SELECT * FROM crud.filme 
-					ORDER BY id DESC";
-			$dados = mysqli_query($con, $sql) or die(mysqli_error());
-			return $dados;
-
-			mysqli_close($con);
+			$sql = "SELECT * FROM crud.filme ORDER BY id DESC";
+			$resultado = Conexao::getConexao()->query($sql);
+			
+			return $resultado;
 		}
 
 		function excluir(Filme $f){
@@ -52,8 +50,7 @@
 
 			$id = $f->getId();
 
-			$sql = "DELETE FROM crud.filme 
-					WHERE filme.id = $id";
+			$sql = "DELETE FROM crud.filme WHERE filme.id = $id";
 			$dados = mysqli_query($con, $sql) or die(mysqli_error());
 
 			$cf = new ControllerFilme();
