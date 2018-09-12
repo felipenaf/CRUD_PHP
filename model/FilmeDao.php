@@ -7,8 +7,7 @@
 		
 		function inserir(Filme $f){
 			try{
-
-				Conexao::getConexao();
+				$con = Conexao::getConexao();
 				$tituloOr = $f->getTituloOr();
 				$tituloBr = $f->getTituloBr();
 				$ano	  = $f->getAno(); 
@@ -17,14 +16,12 @@
 
 				$sql = "INSERT INTO crud.filme (tituloOr, tituloBr, ano, diretor, genero) 
 						VALUES ('$tituloOr', '$tituloBr', $ano, '$diretor', '$genero')";
-				$resultado = Conexao::getConexao()->query($sql);
+				$con->query($sql);
 
 				$cf = new ControllerFilme();
 				$cf->tela_lista();
 				echo "<script>alert('Filme Cadastrado com sucesso');</script>";
-
 			}catch(Exception $e){
-
 				echo "Erro: {$e->getMessage()}";
 				echo "<br>";
 				echo "Linha: {$e->getLine()}";
@@ -33,12 +30,10 @@
 
 		function listar(){
 			try{
-
-				Conexao::getConexao();
+				$con = Conexao::getConexao();
 				$sql = "SELECT * FROM crud.filme ORDER BY id DESC";
-				$resultado = Conexao::getConexao()->query($sql);
+				$resultado = $con->query($sql);
 			}catch(Exception $e){
-
 				echo "Erro: {$e->getMessage()}";
 				echo "<br>";
 				echo "Linha: {$e->getLine()}";
@@ -48,7 +43,6 @@
 
 		function excluir(Filme $f){
 			try{
-
 				$con = Conexao::getConexao();
 				$id = $f->getId();
 				$sql = "DELETE FROM crud.filme WHERE filme.id = $id";
@@ -58,7 +52,6 @@
 				$cf->tela_lista();
 				echo "<script>alert('Exclusão Efetuada com sucesso!');</script>";
 			}catch(Exception $e){
-
 				echo "Erro: {$e->getMessage()}";
 				echo "<br>";
 				echo "Linha: {$e->getLine()}";
@@ -84,7 +77,6 @@
 				$con->query($sql);
 
 				echo "<script>alert('Alteração efetuada com sucesso!');</script>";
-
 			}catch(Exception $e){
 				echo "Erro: {$e->getMessage()}";
 				echo "<br>";
@@ -94,12 +86,10 @@
 
 		function consultaId($id){
 			try{
-
 				$con = Conexao::getConexao();
 				$sql = "SELECT * FROM crud.filme WHERE id = $id";
 				$resultado = $con->query($sql);
 			}catch(Exception $e){
-
 				echo "Erro: {$e->getMessage()}";
 				echo "<br>";
 				echo "Linha: {$e->getLine()}";
