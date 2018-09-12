@@ -49,10 +49,10 @@
 		function excluir(Filme $f){
 			try{
 
-				Conexao::getConexao();
+				$con = Conexao::getConexao();
 				$id = $f->getId();
 				$sql = "DELETE FROM crud.filme WHERE filme.id = $id";
-				Conexao::getConexao()->query($sql);
+				$con->query($sql);
 
 				$cf = new ControllerFilme();
 				$cf->tela_lista();

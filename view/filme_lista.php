@@ -45,8 +45,8 @@
 									<td class="py-1"><?= $linha['ano'] 		?></td>
 									<td class="py-1"><?= $linha['diretor'] 	?></td>
 									<td class="py-1"><?= $linha['genero'] 	?></td>
-									<td class="py-1 text-center"><a class="btn btn-secondary btn-sm py-0" href="?controllerFilme=controllerFilme&acao=tela_editar&id=<?= $registro['id'] ?>">Editar</a></td>
-									<td class="py-1 text-center"><a class="btn btn-danger btn-sm py-0" href="?controllerFilme=controllerFilme&acao=excluir&id=<?= $registro['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir o registro?')">Excluir</a></td>
+									<td class="py-1 text-center"><a class="btn btn-secondary btn-sm py-0" href="?controllerFilme=controllerFilme&acao=tela_editar&id=<?= $linha['id'] ?>">Editar</a></td>
+									<td class="py-1 text-center"><a class="btn btn-danger btn-sm py-0" href="?controllerFilme=controllerFilme&acao=excluir&id=<?= $linha['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir o registro?')">Excluir</a></td>
 								</tr>
 							</tbody>
 
