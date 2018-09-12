@@ -18,11 +18,9 @@
 				<?php 
 					$id = !empty($_GET['id']) ? $_GET['id'] : '';
 					$fDao = new FilmeDao();
-					$resultado = array();
 					$resultado = $fDao->consultaId($id);
 
 					if (is_array($resultado) || is_object($resultado)){
-
 						foreach ($resultado as $filme) {
 							$id				= $filme['id'];
 							$tituloOr = $filme['tituloOr'];

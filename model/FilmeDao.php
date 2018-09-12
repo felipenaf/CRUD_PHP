@@ -66,40 +66,46 @@
 		}
 
 		function editar(Filme $f){
-			$con = getConnection();
+			try{
+				$con = Conexao::getConexao();
 
-			$id 		= $f->getId();
-			$tituloOr 	= $f->getTituloOr();
-			$tituloBr 	= $f->getTituloBr();
-			$ano	  	= $f->getAno(); 
-			$diretor  	= $f->getDiretor();
-			$genero   	= $f->getGenero();
+				$id 		= $f->getId();
+				$tituloOr 	= $f->getTituloOr();
+				$tituloBr 	= $f->getTituloBr();
+				$ano	  	= $f->getAno(); 
+				$diretor  	= $f->getDiretor();
+				$genero   	= $f->getGenero();
 
-			$sql = "UPDATE crud.filme 
-					SET tituloOr = '$tituloOr', tituloBr = '$tituloBr', 
-						ano = $ano, diretor = '$diretor', genero = '$genero' 
-					WHERE id = $id;";
+				$sql = "UPDATE crud.filme 
+						SET tituloOr = '$tituloOr', tituloBr = '$tituloBr', 
+							ano = $ano, diretor = '$diretor', genero = '$genero' 
+						WHERE id = $id;";
 
-			$dados = mysqli_query($con, $sql) or die(mysqli_error($con));
+				$con->query($sql);
 
-			if($dados){
-				echo "<script>alert('Alteração salva com sucesso');</script>";
-			} else {
-				echo "<script>alert('Erro ao alterar as informações');</script>";
-			}				
+				echo "<script>alert('Alteração efetuada com sucesso!');</script>";
 
-			mysqli_close($con);
+			}catch(Exception $e){
+				echo "Erro: {$e->getMessage()}";
+				echo "<br>";
+				echo "Linha: {$e->getLine()}";
+			}
 		}
 
 		function consultaId($id){
-			$con = getConnection();
-			$sql = "SELECT * FROM crud.filme WHERE id = $id";
-			$dados = mysqli_query($con, $sql) or die(mysqli_error());
+			try{
 
-			return $dados;
+				$con = Conexao::getConexao();
+				$sql = "SELECT * FROM crud.filme WHERE id = $id";
+				$resultado = $con->query($sql);
+			}catch(Exception $e){
 
-			mysqli_close($con);
+				echo "Erro: {$e->getMessage()}";
+				echo "<br>";
+				echo "Linha: {$e->getLine()}";
+			}
+
+			return $resultado;
 		}
-
 	}
 ?>
