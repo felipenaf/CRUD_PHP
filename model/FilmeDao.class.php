@@ -1,7 +1,7 @@
 <?php
-	include_once RAIZ . '/model/conexao.php';
-	include_once RAIZ . '/bean/Filme.Class.php';
-	include_once RAIZ . '/controller/ControllerFilme.php';
+	include_once RAIZ . '/model/Conexao.class.php';
+	include_once RAIZ . '/model/Filme.class.php';
+	include_once RAIZ . '/controller/ControllerFilme.class.php';
 
 	class FilmeDao{
 		

@@ -1,5 +1,5 @@
-<? include_once RAIZ . '/model/FilmeDao.php'; ?>
-<? include_once RAIZ . '/controller/ControllerFilme.php'; ?>
+<? include_once RAIZ . '/model/FilmeDao.class.php'; ?>
+<? include_once RAIZ . '/controller/ControllerFilme.class.php'; var_dump(RAIZ);?>
 
 <!DOCTYPE html>
 <html>

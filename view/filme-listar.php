@@ -1,5 +1,5 @@
-<?php include_once RAIZ . '/model/FilmeDao.php'; ?>
-<?php include_once RAIZ . '/controller/ControllerFilme.php'; ?>
+<?php include_once RAIZ . '/model/FilmeDao.class.php'; ?>
+<?php include_once RAIZ . '/controller/ControllerFilme.class.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -17,8 +17,7 @@
 
 				<div class="col-md-12 mb-2">
 
-					<form action="?controllerFilme=controllerFilme&acao=listar" method="POST">
-						<input type="hidden" class="btn btn-dark" name="acao" value="listar">
+					<form action="?ControllerFilme=ControllerFilme&acao=listar" method="POST">
 
 						<table id="table_listar_filme" class="table table-hover my-4">
 							<thead class="table-borderless bg-secondary text-white">
@@ -45,8 +44,8 @@
 									<td class="py-1"><?= $linha['ano'] 		?></td>
 									<td class="py-1"><?= $linha['diretor'] 	?></td>
 									<td class="py-1"><?= $linha['genero'] 	?></td>
-									<td class="py-1 text-center"><a class="btn btn-secondary btn-sm py-0" href="?controllerFilme=controllerFilme&acao=tela_editar&id=<?= $linha['id'] ?>">Editar</a></td>
-									<td class="py-1 text-center"><a class="btn btn-danger btn-sm py-0" href="?controllerFilme=controllerFilme&acao=excluir&id=<?= $linha['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir o registro?')">Excluir</a></td>
+									<td class="py-1 text-center"><a class="btn btn-secondary btn-sm py-0" href="/view/filme-editar.php">Editar</a></td>
+									<td class="py-1 text-center"><a class="btn btn-danger btn-sm py-0" href="?ControllerFilme=ControllerFilme&acao=excluir&id=<?= $linha['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir o registro?')">Excluir</a></td>
 								</tr>
 							</tbody>
 

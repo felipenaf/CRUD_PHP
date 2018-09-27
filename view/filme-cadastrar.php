@@ -1,4 +1,4 @@
-<?php include_once(RAIZ . '/model/FilmeDao.php') ?>
+<?php include_once(RAIZ . '/model/FilmeDao.class.php') ?>
 
 <!DOCTYPE html>
 <html>
